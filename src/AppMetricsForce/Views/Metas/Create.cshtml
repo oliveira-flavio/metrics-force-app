@@ -1,0 +1,63 @@
+﻿@model AppMetricsForce.Models.Meta
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Meta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InicioMeta" class="control-label"></label>
+                <input asp-for="InicioMeta" class="form-control" />
+                <span asp-validation-for="InicioMeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FimMeta" class="control-label"></label>
+                <input asp-for="FimMeta" class="form-control" />
+                <span asp-validation-for="FimMeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RealizadoAteDataAtual" class="control-label"></label>
+                <input asp-for="RealizadoAteDataAtual" class="form-control" />
+                <span asp-validation-for="RealizadoAteDataAtual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaBronze" class="control-label"></label>
+                <input asp-for="MetaBronze" class="form-control" />
+                <span asp-validation-for="MetaBronze" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaPrata" class="control-label"></label>
+                <input asp-for="MetaPrata" class="form-control" />
+                <span asp-validation-for="MetaPrata" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaOuro" class="control-label"></label>
+                <input asp-for="MetaOuro" class="form-control" />
+                <span asp-validation-for="MetaOuro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaDiamante" class="control-label"></label>
+                <input asp-for="MetaDiamante" class="form-control" />
+                <span asp-validation-for="MetaDiamante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
