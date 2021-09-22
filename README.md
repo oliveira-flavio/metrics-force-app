@@ -1,4 +1,4 @@
-<h2 align="center">Sales Metrika</h2>
+<h2 align="center">Metrics Force</h2>
 
 
 <p align="center">
