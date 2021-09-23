@@ -21,7 +21,7 @@ ___
 
 ## :information_source: **Sobre**
 
-O Sales Metrika é um projeto de dashboard com o objetivo de sintetizar informações de vendas, facilitando o acesso rápido a informações comerciais. 
+O Metrics Force é um projeto de dashboard com o objetivo de sintetizar informações de vendas, facilitando o acesso rápido a informações comerciais. 
 Supervisores, gestores e vendedores são os principas atores interessados nesse projeto.
 
 
@@ -29,9 +29,8 @@ Supervisores, gestores e vendedores são os principas atores interessados nesse 
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
 
-- .Net Core WebApi
+- ASP.Net Core MVC
 - Entity Framework
-- Angular
 - Bootstrap
 - Postgres
 
