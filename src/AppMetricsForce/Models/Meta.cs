@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// Adicionar Seed de vendas para 3 meses cheios, para gerar relatório gerar um seed de um mês corrente,
+// até a data da apresentação do trabalho
+
 namespace AppMetricsForce.Models
 {
     public class Meta
