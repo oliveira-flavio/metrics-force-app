@@ -12,10 +12,10 @@ namespace AppMetricsForce.App.Data.Context
         public MetricsDbContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<Administrador> administradores { get; set; }
-        public DbSet<Gerente> gerentes { get; set; }
-        public DbSet<Vendedor> vendedores { get; set; }
-        public DbSet<Meta> metas { get; set; }
-        public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Administrador> Administradores { get; set; }
+        public DbSet<Gerente> Gerentes { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<Meta> Metas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

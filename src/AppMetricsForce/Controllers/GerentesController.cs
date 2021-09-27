@@ -22,7 +22,7 @@ namespace AppMetricsForce.Controllers
         // GET: Gerentes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.gerentes.ToListAsync());
+            return View(await _context.Gerentes.ToListAsync());
         }
 
         // GET: Gerentes/Details/5
@@ -33,7 +33,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var gerente = await _context.gerentes
+            var gerente = await _context.Gerentes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (gerente == null)
             {
@@ -73,7 +73,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var gerente = await _context.gerentes.FindAsync(id);
+            var gerente = await _context.Gerentes.FindAsync(id);
             if (gerente == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var gerente = await _context.gerentes
+            var gerente = await _context.Gerentes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (gerente == null)
             {
@@ -139,15 +139,15 @@ namespace AppMetricsForce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var gerente = await _context.gerentes.FindAsync(id);
-            _context.gerentes.Remove(gerente);
+            var gerente = await _context.Gerentes.FindAsync(id);
+            _context.Gerentes.Remove(gerente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool GerenteExists(int id)
         {
-            return _context.gerentes.Any(e => e.Id == id);
+            return _context.Gerentes.Any(e => e.Id == id);
         }
     }
 }

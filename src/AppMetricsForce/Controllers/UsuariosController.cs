@@ -22,7 +22,7 @@ namespace AppMetricsForce.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.usuarios.ToListAsync());
+            return View(await _context.Usuarios.ToListAsync());
         }
 
         // GET: Usuarios/Details/5
@@ -33,7 +33,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.usuarios
+            var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
@@ -73,7 +73,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.usuarios.FindAsync(id);
+            var usuario = await _context.Usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var usuario = await _context.usuarios
+            var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (usuario == null)
             {
@@ -139,15 +139,15 @@ namespace AppMetricsForce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var usuario = await _context.usuarios.FindAsync(id);
-            _context.usuarios.Remove(usuario);
+            var usuario = await _context.Usuarios.FindAsync(id);
+            _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UsuarioExists(int id)
         {
-            return _context.usuarios.Any(e => e.Id == id);
+            return _context.Usuarios.Any(e => e.Id == id);
         }
     }
 }

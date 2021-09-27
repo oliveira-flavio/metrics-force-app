@@ -22,7 +22,7 @@ namespace AppMetricsForce.Controllers
         // GET: Metas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.metas.ToListAsync());
+            return View(await _context.Metas.ToListAsync());
         }
 
         // GET: Metas/Details/5
@@ -33,7 +33,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var meta = await _context.metas
+            var meta = await _context.Metas
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (meta == null)
             {
@@ -73,7 +73,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var meta = await _context.metas.FindAsync(id);
+            var meta = await _context.Metas.FindAsync(id);
             if (meta == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var meta = await _context.metas
+            var meta = await _context.Metas
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (meta == null)
             {
@@ -139,15 +139,15 @@ namespace AppMetricsForce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var meta = await _context.metas.FindAsync(id);
-            _context.metas.Remove(meta);
+            var meta = await _context.Metas.FindAsync(id);
+            _context.Metas.Remove(meta);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MetaExists(int id)
         {
-            return _context.metas.Any(e => e.Id == id);
+            return _context.Metas.Any(e => e.Id == id);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace AppMetricsForce.Controllers
         // GET: Vendedors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.vendedores.ToListAsync());
+            return View(await _context.Vendedores.ToListAsync());
         }
 
         // GET: Vendedors/Details/5
@@ -33,7 +33,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var vendedor = await _context.vendedores
+            var vendedor = await _context.Vendedores
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vendedor == null)
             {
@@ -73,7 +73,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var vendedor = await _context.vendedores.FindAsync(id);
+            var vendedor = await _context.Vendedores.FindAsync(id);
             if (vendedor == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace AppMetricsForce.Controllers
                 return NotFound();
             }
 
-            var vendedor = await _context.vendedores
+            var vendedor = await _context.Vendedores
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (vendedor == null)
             {
@@ -139,15 +139,15 @@ namespace AppMetricsForce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vendedor = await _context.vendedores.FindAsync(id);
-            _context.vendedores.Remove(vendedor);
+            var vendedor = await _context.Vendedores.FindAsync(id);
+            _context.Vendedores.Remove(vendedor);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VendedorExists(int id)
         {
-            return _context.vendedores.Any(e => e.Id == id);
+            return _context.Vendedores.Any(e => e.Id == id);
         }
     }
 }
