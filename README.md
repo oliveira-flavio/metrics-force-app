@@ -36,7 +36,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 
 ## **Roadmap**
 
-Acompanhe o desenvolvimento e backlog do projeto pelo [board](https://github.com/oliveira-flavio/sales-metrika/projects/2).
+Acompanhe o desenvolvimento e backlog do projeto pelo [board](https://github.com/oliveira-flavio/metrics-force-app/projects/1).
 
 ## **Licença**
 
