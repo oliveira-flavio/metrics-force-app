@@ -7,6 +7,5 @@ namespace AppMetricsForce.Models
 {
     public class Administrador : Usuario
     {
-
     }
 }
