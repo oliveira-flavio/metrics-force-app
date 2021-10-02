@@ -1,4 +1,5 @@
 ﻿using AppMetricsForce.Models;
+using MetricsForce.Business.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,12 @@ namespace AppMetricsForce.App.Data.Context
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<Meta> Metas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<PercentualComissao> PercentuaisComissao { get; set; }
+        public DbSet<RegistroVenda> RegistroVendas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(MetricsDbContext).Assembly);
 
             // Impedir delete cascade
