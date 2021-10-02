@@ -30,6 +30,12 @@ namespace MetricsForce.Data.Mapping
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            builder.HasIndex(u => new
+            {
+                u.CodigoFuncionario
+            })
+                .IsUnique();
+
             builder.Property(u => u.Cargo)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
