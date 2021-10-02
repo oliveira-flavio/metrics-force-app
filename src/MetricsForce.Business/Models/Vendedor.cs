@@ -7,9 +7,13 @@ namespace AppMetricsForce.Models
 {
     public class Vendedor : Usuario
     {
+        public decimal Comissao { get; set; }
+        public ICollection<Meta> Meta { get; set; }
+
+        //KPIs
         public int QuantidadeDeVendas { get; set; }
         public double VendaLiquida { get; set; }
-        public int ItensVendidos { get; set; }
+        public int QuantidadeItens { get; set; }
         public double TicketMedio { get; set; }
 
         //Comissão
