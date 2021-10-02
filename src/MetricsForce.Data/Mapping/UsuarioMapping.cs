@@ -16,18 +16,22 @@ namespace MetricsForce.Data.Mapping
             builder.HasKey(u => u.Id);
             builder.Property(u => u.Nome)
                 .IsRequired()
+                .HasColumnName("Nome")
                 .HasColumnType("varchar(255)");
 
             builder.Property(u => u.Login)
                 .IsRequired()
+                .HasColumnName("Login")
                 .HasColumnType("varchar(100)");
 
             builder.Property(u => u.Senha)
                 .IsRequired()
+                .HasColumnName("Senha")
                 .HasColumnType("varchar(100)");
 
             builder.Property(u => u.CodigoFuncionario)
                 .IsRequired()
+                .HasColumnName("CodigoFuncionario")
                 .HasColumnType("varchar(100)");
 
             builder.HasIndex(u => new
@@ -38,10 +42,12 @@ namespace MetricsForce.Data.Mapping
 
             builder.Property(u => u.Cargo)
                 .IsRequired()
+                .HasColumnName("Cargo")
                 .HasColumnType("varchar(100)");
 
             builder.Property(u => u.Ativo)
                 .IsRequired()
+                .HasColumnName("Ativo")
                 .HasColumnType("varchar(100)");
 
             builder.ToTable("Usuarios");
