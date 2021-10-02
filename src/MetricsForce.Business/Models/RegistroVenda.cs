@@ -13,7 +13,7 @@ namespace MetricsForce.Business.Models
         public Vendedor Vendedor { get; set; }
         public int QuantidadeItens { get; set; }
         public decimal ValorVenda { get; set; }
-        public PercentualComissao Comissao { get; set; }
+        public PercentualComissao PercentualComissao { get; set; }
 
     }
 }
