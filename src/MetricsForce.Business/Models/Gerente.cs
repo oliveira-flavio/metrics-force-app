@@ -7,5 +7,7 @@ namespace AppMetricsForce.Models
 {
     public class Gerente : Usuario
     {
+        public decimal Comissao { get; set; }
+        public ICollection<Meta> Meta { get; set; }
     }
 }
