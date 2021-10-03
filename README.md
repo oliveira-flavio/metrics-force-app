@@ -46,4 +46,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 - Flávio Oliveira
 - Christine Schütz
-- Denis
+
