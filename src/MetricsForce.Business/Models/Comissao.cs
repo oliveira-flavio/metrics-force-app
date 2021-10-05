@@ -8,8 +8,8 @@ namespace MetricsForce.Business.Models
 {
     public class Comissao
     {
-        public int IdComissao { get; set; }
-        public int IdUsuario { get; set; }
-        public PercentualComissao PercentualComissao { get; set; }
+        public int IdComissao { get; private set; }
+        public int IdUsuario { get; private set; }
+        public PercentualComissao PercentualComissao { get; private set; }
     }
 }

@@ -8,8 +8,8 @@ namespace AppMetricsForce.Models
 {
     public class Gerente : Usuario
     {
-        public Comissao Comissao { get; set; }
-        public ICollection<Meta> Metas { get; set; }
-        public IndicadorDePerformance IndicadoresDePerformance { get; set; }
+        public Comissao Comissao { get; private set; }
+        public ICollection<Meta> Metas { get; private set; }
+        public IndicadorDePerformance IndicadoresDePerformance { get; private set; }
     }
 }

@@ -9,12 +9,11 @@ namespace MetricsForce.Business.Models
 {
     public class RegistroVenda
     {
-        public int IdVenda { get; set; }    
-        public int QuantidadeItem { get; set; }
-        public decimal ValorVenda { get; set; }
-        public int QuantidadeVenda { get; set; }
-        public ICollection<Vendedor> Vendedor { get; set; }
-        public PercentualComissao PercentualComissao { get; set; }
+        public int IdVenda { get; private set; }    
+        public int QuantidadeItem { get; private set; }
+        public decimal ValorVenda { get; private set; }
+        public int QuantidadeTicket { get; private set; }
+        public ICollection<Vendedor> Vendedor { get; private set; }
 
     }
 }

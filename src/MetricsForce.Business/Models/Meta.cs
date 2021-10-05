@@ -10,16 +10,16 @@ namespace AppMetricsForce.Models
 {
     public class Meta
     {
-        public int Id { get; set; }
-        public int IdUsuario { get; set; }
-        public DateTime InicioMeta { get; set; }
-        public DateTime FimMeta { get; set; }
-        public decimal MetaBronze { get; set; }
-        public decimal MetaPrata { get; set; }
-        public decimal MetaOuro { get; set; }
-        public decimal MetaDiamante { get; set; }
-        public Gerente Gerente { get; set; }
-        public Vendedor Vendedor { get; set; }
+        public int Id { get; private set; }
+        public int IdUsuario { get; private set; }
+        public DateTime InicioMeta { get; private set; }
+        public DateTime FimMeta { get; private set; }
+        public decimal MetaBronze { get; private set; }
+        public decimal MetaPrata { get; private set; }
+        public decimal MetaOuro { get; private set; }
+        public decimal MetaDiamante { get; private set; }
+        public Gerente Gerente { get; private set; }
+        public Vendedor Vendedor { get; private set; }
 
     }
 }

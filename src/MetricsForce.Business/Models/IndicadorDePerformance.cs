@@ -8,9 +8,9 @@ namespace MetricsForce.Business.Models
 {
     public class IndicadorDePerformance
     {
-        public int IdIndicadorDePerformance { get; set; }
-        public int IdUsuario { get; set; }
-        public decimal TicketMedio { get; set; }
-        public int QuantidadeVenda { get; set; }
+        public int IdIndicadorDePerformance { get; private set; }
+        public int IdUsuario { get; private set; }
+        public decimal TicketMedio { get; private set; }
+        public int QuantidadeVenda { get; private set; }
     }
 }
