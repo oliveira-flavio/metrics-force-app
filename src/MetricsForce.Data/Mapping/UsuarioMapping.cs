@@ -40,11 +40,6 @@ namespace MetricsForce.Data.Mapping
             })
                 .IsUnique();
 
-            builder.Property(u => u.Cargo)
-                .IsRequired()
-                .HasColumnName("Cargo")
-                .HasColumnType("varchar(100)");
-
             builder.Property(u => u.Ativo)
                 .IsRequired()
                 .HasColumnName("Ativo")
