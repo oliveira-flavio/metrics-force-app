@@ -13,7 +13,7 @@ namespace MetricsForce.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasKey(u => u.Id);
+            builder.HasKey(u => u.IdUsuario);
             builder.Property(u => u.Nome)
                 .IsRequired()
                 .HasColumnName("Nome")

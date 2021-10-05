@@ -20,7 +20,7 @@ namespace MetricsForce.Data.Mapping
 
             builder.HasMany(g => g.Metas)
                 .WithOne(m => m.Gerente)
-                .HasForeignKey(m => m.UsuarioId);
+                .HasForeignKey(m => m.IdUsuario);
 
             builder.ToTable("Gerentes");
         }
