@@ -20,6 +20,7 @@ namespace AppMetricsForce.App.Data.Context
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<PercentualComissao> PercentuaisComissao { get; set; }
         public DbSet<RegistroVenda> RegistroVendas { get; set; }
+        public DbSet<IndicadorDePerformance> IndicadoresDePerformance { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
