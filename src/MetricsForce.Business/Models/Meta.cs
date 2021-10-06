@@ -10,7 +10,7 @@ namespace AppMetricsForce.Models
 {
     public class Meta
     {
-        public int Id { get; private set; }
+        public int IdMeta { get; private set; }
         public int IdUsuario { get; private set; }
         public DateTime InicioMeta { get; private set; }
         public DateTime FimMeta { get; private set; }

@@ -13,6 +13,7 @@ namespace MetricsForce.Business.Models
         public int QuantidadeItem { get; private set; }
         public decimal ValorVenda { get; private set; }
         public int QuantidadeTicket { get; private set; }
+        public DateTime Data { get; set; }
         public ICollection<Vendedor> Vendedor { get; private set; }
 
     }
