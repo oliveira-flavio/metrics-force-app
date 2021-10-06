@@ -1,0 +1,35 @@
+﻿using MetricsForce.Business.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MetricsForce.Data.Mapping
+{
+    public class ComissaoMapping : IEntityTypeConfiguration<Comissao>
+    {
+        public void Configure(EntityTypeBuilder<Comissao> builder)
+        {
+            builder.HasKey(c => c.IdComissao);
+
+            builder.Property(c => c.Valor)
+                .HasColumnType("decimal(5,2)")
+                .HasColumnName("Valor")
+                .IsRequired();
+           
+
+            builder.Property(c => c.Mes)
+                .HasColumnName("MesComissao")
+                .HasColumnType("DateTime");
+
+            builder.HasOne(p => p.PercentualComissao)
+                .WithOne(c => c.Comissao)
+                .IsRequired();
+
+            builder.ToTable("Comissoes");
+        }
+    }
+}
