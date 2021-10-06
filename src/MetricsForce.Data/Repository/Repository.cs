@@ -1,7 +1,5 @@
-﻿using AppMetricsForce.App.Data.Context;
-using MetricsForce.Business.Interfaces;
+﻿using MetricsForce.Business.Interfaces;
 using MetricsForce.Business.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,53 +9,41 @@ using System.Threading.Tasks;
 
 namespace MetricsForce.Data.Repository
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity, new()
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
-        protected readonly MetricsDbContext Db;
-        protected readonly DbSet<TEntity> DbSet;
-
-        protected Repository(MetricsDbContext db)
+        public Task Adicionar(TEntity entity)
         {
-            Db = db;
-            DbSet = db.Set<TEntity>();
+            throw new NotImplementedException();
         }
 
-        public virtual async Task Adicionar(TEntity entity)
+        public Task Atualizar(TEntity entity)
         {
-            DbSet.Add(entity);
-            await SaveChanges();
-        }
-        public virtual async Task Atualizar(TEntity entity)
-        {
-            DbSet.Update(entity);
-            await SaveChanges();
-        }
-        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
-        {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
-        }
-        public virtual async Task<TEntity> ObterPorId(int id)
-        {
-            return await DbSet.FindAsync(id);
-        }
-        public virtual async Task<List<TEntity>> ObterTodos()
-        {
-            return await DbSet.ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public virtual async Task Remover(int id)
+        public Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
-            DbSet.Remove(new TEntity { Id = id });
-            await SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public async Task<int> SaveChanges()
-        {
-            return await Db.SaveChangesAsync();
-        }
         public void Dispose()
         {
-            Db?.Dispose();
+            throw new NotImplementedException();
+        }
+
+        public Task<TEntity> ObterPorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<TEntity>> ObterTodos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }
