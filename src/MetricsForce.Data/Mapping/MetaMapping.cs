@@ -13,7 +13,7 @@ namespace MetricsForce.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Meta> builder)
         {
-            builder.HasKey(m => m.IdMeta);
+            builder.HasKey(m => m.Id);
 
             builder.Property(m => m.InicioMeta)
                 .HasColumnType("DateTime")

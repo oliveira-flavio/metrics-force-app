@@ -13,7 +13,7 @@ namespace MetricsForce.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<IndicadorDePerformance> builder)
         {
-            builder.HasKey(p => p.IdIndicadorDePerformance);
+            builder.HasKey(p => p.Id);
             builder.Property(p => p.TicketMedio)
                 .HasColumnType("decimal(5,2)")
                 .HasColumnName("TicketMedio")

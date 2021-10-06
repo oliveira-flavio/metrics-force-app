@@ -13,7 +13,7 @@ namespace MetricsForce.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Comissao> builder)
         {
-            builder.HasKey(c => c.IdComissao);
+            builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Valor)
                 .HasColumnType("decimal(5,2)")
