@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetricsForce.Business.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace AppMetricsForce.Models
 {
-    public class Meta
+    public class Meta : Entity
     {
-        public int IdMeta { get; private set; }
         public int IdUsuario { get; private set; }
         public DateTime InicioMeta { get; private set; }
         public DateTime FimMeta { get; private set; }

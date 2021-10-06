@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MetricsForce.Business.Models
 {
-    public class IndicadorDePerformance
+    public class IndicadorDePerformance : Entity
     {
-        public int IdIndicadorDePerformance { get; private set; }
         public int IdUsuario { get; private set; }
         public decimal TicketMedio { get; private set; }
         public int QuantidadeVenda { get; private set; }

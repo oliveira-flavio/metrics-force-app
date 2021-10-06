@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MetricsForce.Business.Models
 {
-    public class PercentualComissao
+    public class PercentualComissao : Entity
     {
-        public int IdPercentualComissao { get; private set; }
         public int IdComissao { get; set; }
         public float PorcentagemComissaoBase { get; private set; }
         public float PorcentagemComissaoBronze { get; private set; }

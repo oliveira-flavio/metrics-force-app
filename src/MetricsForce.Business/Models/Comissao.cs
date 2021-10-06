@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MetricsForce.Business.Models
 {
-    public class Comissao
+    public class Comissao : Entity
     {
-        public int IdComissao { get; private set; }
         public int IdUsuario { get; private set; }
         public decimal Valor { get; set; }
         public DateTime Mes { get; set; }
