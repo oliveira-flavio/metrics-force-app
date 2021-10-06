@@ -10,8 +10,8 @@ namespace MetricsForce.Business.Models
     public class Comissao : Entity
     {
         public int IdUsuario { get; private set; }
-        public decimal Valor { get; set; }
-        public DateTime Mes { get; set; }
+        public decimal Valor { get; private set; }
+        public DateTime Mes { get; private set; }
         public PercentualComissao PercentualComissao { get; private set; }
         public Vendedor Vendedor { get; private set; }
         public Gerente Gerente { get; private set; }
