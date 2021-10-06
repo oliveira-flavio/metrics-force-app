@@ -17,8 +17,10 @@ namespace MetricsForce.Data.Mapping
                 .WithOne(m => m.Vendedor)
                 .HasForeignKey(m => m.IdUsuario);
 
-
-
+            builder.HasMany(v => v.Comissoes)
+                .WithOne(c => c.Vendedor)
+                .HasForeignKey(c => c.IdUsuario);
+                
             builder.ToTable("Vendedores");
         }
     }

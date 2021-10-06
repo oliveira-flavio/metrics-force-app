@@ -40,6 +40,12 @@ namespace MetricsForce.Data.Mapping
             })
                 .IsUnique();
 
+            builder.HasIndex(u => new
+            {
+                u.Email
+            })
+                .IsUnique();
+
             builder.Property(u => u.Ativo)
                 .IsRequired()
                 .HasColumnName("Ativo")

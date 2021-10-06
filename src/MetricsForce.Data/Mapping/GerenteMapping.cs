@@ -14,13 +14,17 @@ namespace MetricsForce.Data.Mapping
         public void Configure(EntityTypeBuilder<Gerente> builder)
         {
 
-            builder.Property(g => g.Comissao)
-                .HasColumnName("Comissão")
-                .HasColumnType("decimal(10,2)");
+            builder.HasMany(g => g.Comissoes)
+                .WithOne(c => c.Gerente)
+                .HasForeignKey(c => c.IdUsuario);
 
             builder.HasMany(g => g.Metas)
                 .WithOne(m => m.Gerente)
                 .HasForeignKey(m => m.IdUsuario);
+
+            builder.HasMany(g => g.IndicadoresDePerformance)
+                .WithOne(p => p.Gerente)
+                .HasForeignKey(p => p.IdUsuario);
 
             builder.ToTable("Gerentes");
         }
