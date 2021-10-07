@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MetricsForce.Data.Repository
 {
-    class RegistroVendaRepository : Repository<RegistroVenda>, IRegistroVendaRepository
+    public class RegistroVendaRepository : Repository<RegistroVenda>, IRegistroVendaRepository
     {
         public RegistroVendaRepository(MetricsDbContext context) : base(context) { }
 
