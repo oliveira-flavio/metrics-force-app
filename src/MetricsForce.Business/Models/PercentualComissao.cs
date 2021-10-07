@@ -8,7 +8,7 @@ namespace MetricsForce.Business.Models
 {
     public class PercentualComissao : Entity
     {
-        public int IdComissao { get; set; }
+        public int IdComissao { get; private set; }
         public float PorcentagemComissaoBase { get; private set; }
         public float PorcentagemComissaoBronze { get; private set; }
         public float PorcentagemComissaoPrata { get; private set; }
