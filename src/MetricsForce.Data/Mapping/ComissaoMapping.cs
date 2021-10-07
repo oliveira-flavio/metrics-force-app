@@ -20,14 +20,13 @@ namespace MetricsForce.Data.Mapping
                 .HasColumnName("Valor")
                 .IsRequired();
            
-
             builder.Property(c => c.Mes)
                 .HasColumnName("MesComissao")
                 .HasColumnType("DateTime");
 
-            builder.HasOne(c => c.PercentualComissao)
-                .WithOne(p => p.Comissao)
-                .HasForeignKey(p => p.);
+            builder.HasOne(p => p.PercentualComissao)
+                .WithOne(c => c.Comissao)
+                .HasForeignKey<PercentualComissao>(c => c.IdComissao);
 
             builder.ToTable("Comissoes");
         }
