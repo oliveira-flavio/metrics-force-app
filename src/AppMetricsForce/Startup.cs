@@ -33,6 +33,14 @@ namespace AppMetricsForce
 
             services.AddScoped<MetricsDbContext>();
             services.AddScoped<IComissaoRepository, ComissaoRepository>();
+            services.AddScoped<IAdministradorRepository, AdministradorRepository>();
+            services.AddScoped<IGerenteRepository, GerenteRepository>();
+            services.AddScoped<IIndicadorDePerformanceRepository, IndicadorDePerformanceRepository>();
+            services.AddScoped<IMetaRepository, MetaRepository>();
+            services.AddScoped<IPercentualComissaoRepository, PercentualComissaoRepository>();
+            services.AddScoped<IRegistroVendaRepository, RegistroVendaRepository>();
+            services.AddScoped<IVendedorRepository, VendedorRepository>();
+
         }
 
 
@@ -52,7 +60,7 @@ namespace AppMetricsForce
 
             app.UseRouting();
 
-            app.UseAuthorization();
+           // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
