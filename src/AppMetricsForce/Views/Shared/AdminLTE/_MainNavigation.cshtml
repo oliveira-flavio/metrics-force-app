@@ -1,6 +1,6 @@
 ﻿@using static AppMetricsForce.Helpers.NavigationIndicatorHelper;
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-info elevation-4">
     <a href="~/Home" class="brand-link">
         <img src="~/img/METRICS FORCE.png" alt="Metrics Force Logo"
              class="brand-image img-circle elevation-3"
@@ -24,13 +24,31 @@
                        class="nav-link @Url.MakeActiveClass("home","index")">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
-                            Home
+                            Dashboard
                         </p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a asp-controller="Home" asp-action="Privacy"
-                       class="nav-link @Url.MakeActiveClass("home","privacy")">
+                    <a asp-controller="Home" asp-action="Sobre"
+                       class="nav-link @Url.MakeActiveClass("home","sobre")">
+                        <i class="nav-icon fas fa-user-friends"></i>
+                        <p>
+                            Equipe
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a asp-controller="Home" asp-action="Sobre"
+                       class="nav-link @Url.MakeActiveClass("home","sobre")">
+                        <i class="nav-icon fas fa-chart-line"></i>
+                        <p>
+                            Meta
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a asp-controller="Home" asp-action="Sobre"
+                       class="nav-link @Url.MakeActiveClass("home","sobre")">
                         <i class="nav-icon fas fa-info-circle"></i>
                         <p>
                             Sobre
@@ -38,33 +56,6 @@
                     </a>
                 </li>
             </ul>
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-                <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview active">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user-cog"></i>
-                            <p>
-                                Configurações
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Usuário</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Meta</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-</nav>
+        </nav>
     </div>
 </aside>
