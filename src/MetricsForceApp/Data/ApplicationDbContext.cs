@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using MetricsForceApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,13 @@ namespace MetricsForceApp.Data
             : base(options)
         {
         }
+        public DbSet<Administrador> Administradores { get; set; }
+        public DbSet<Gerente> Gerentes { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<Meta> Metas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<PercentualComissao> PercentuaisComissao { get; set; }
+        public DbSet<RegistroVenda> RegistroVendas { get; set; }
+        public DbSet<IndicadorDePerformance> IndicadoresDePerformance { get; set; }
     }
 }
