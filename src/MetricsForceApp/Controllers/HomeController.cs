@@ -20,10 +20,17 @@ namespace MetricsForceApp.Controllers
 
         public IActionResult Index()
         {
+            // Se o usuário não estiver autenticado, retornar view Login
+
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Sobre()
         {
             return View();
         }
