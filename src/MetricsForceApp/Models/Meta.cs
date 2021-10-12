@@ -8,7 +8,6 @@ namespace MetricsForceApp.Models
 {
     public class Meta : Entity
     {
-        public int IdUsuario { get; private set; }
         [Display(Name ="Início da Meta")]
         public DateTime InicioMeta { get; private set; }
         [Display(Name ="Fim Meta")]

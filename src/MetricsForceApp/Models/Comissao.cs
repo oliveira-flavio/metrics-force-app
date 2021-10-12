@@ -8,7 +8,7 @@ namespace MetricsForceApp.Models
 {
     public class Comissao : Entity
     {
-        public int IdUsuario { get; private set; }
+
         [Required(ErrorMessage ="O campo {0} é obrigatório")]
         public decimal Valor { get; private set; }
         [Display(Name ="Mês Referência")]

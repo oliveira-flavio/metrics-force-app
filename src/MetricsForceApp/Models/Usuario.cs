@@ -24,6 +24,7 @@ namespace MetricsForceApp.Models
         public string Email { get; private set; }
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(6, ErrorMessage = "O campo {0} precisa ter {1} caracteres", MinimumLength = 6)]
+        [Display(Name ="Codigo Funcionario")]
         public string CodigoFuncionario { get; private set; }
         [Display(Name = "Ativo?")]
         public bool Ativo { get; private set; }

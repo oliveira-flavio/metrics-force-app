@@ -8,7 +8,6 @@ namespace MetricsForceApp.Models
 {
     public class IndicadorDePerformance : Entity
     {
-        public int IdUsuario { get; private set; }
         [Display(Name = "Ticker Médio")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public decimal TicketMedio { get; private set; }

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace MetricsForceApp.Models
 {
     public class PercentualComissao : Entity
-    {
-        public int IdComissao { get; private set; }
+    {       
         [Display(Name = "Porcentagem Base")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public float PorcentagemComissaoBase { get; private set; }
