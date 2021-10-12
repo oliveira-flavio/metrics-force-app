@@ -1,53 +1,47 @@
 ﻿@{
     ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Sobre</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Sobre</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <div class="content">
 
-        <div class="container-fluid d-flex justify-content-center mt-100">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img src="https://i.imgur.com/uIgDDDd.jpg" class="rounded-circle" width="200" height="200">
-                            <h5 class="card-title mt-2 mb-1">Christine Schutz</h5> <span class="fs-2 mb-3 font-weight-bold">.Net Developer</span>
-                            <p class="mb-3 mt-3">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><a><i class="fa fa-linkedin fa-2x linkedin"></i></a></li>
-                            </ul>
-                        </div>
+    <div class="content">
+        <div class="container py-5">
+            <div class="row mb-4">
+                <div class="col-lg-5">
+                    <h4 class="display-4 font-weight-light">POC Metrics Force</h4>
+                    <p class="font-italic text-muted">Informações sobre o trabalho.</p>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-lg-5">
+                    <h6 class="display-4 font-weight-light">Desenvolvedores</h6>             
+                </div>
+            </div>
+            <div class="row text-center">
+                <!-- Team item-->
+                <div class="col-xl-6 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Christine Schütz</h5><span class="small text-uppercase text-muted">.Net Developer</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img src="~/adminlte/dist/img/IMG_20201017_152956 - Copia (2).jpg" class="rounded-circle" width="200" height="200">
-                            <h5 class="card-title mt-2 mb-1">Flávio Oliveira</h5> <span class="fs-2 mb-3 font-weight-bold">.Net Developer</span>
-                            <p class="mb-3 mt-3">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><a><i class="fa fa-facebook fa-2x facebook"></i></a></li>
-                                <li class="list-inline-item"><a><i class="fa fa-linkedin fa-2x linkedin"></i></a></li>
-                            </ul>
-                        </div>
+                <!-- End-->
+                <!-- Team item-->
+                <div class="col-xl-6 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Flávio Oliveira</h5><span class="small text-uppercase text-muted">.Net Developer</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
                     </div>
                 </div>
+                <!-- End-->
             </div>
         </div>
     </div>
