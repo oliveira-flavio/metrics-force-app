@@ -3,6 +3,9 @@
     margin-top: 20px;
 }
 
+h1{
+    font-size: 12px;
+}
 .img-thumbnail {
     padding: .25rem;
     background-color: #fff;
