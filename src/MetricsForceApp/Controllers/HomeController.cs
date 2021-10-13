@@ -25,11 +25,6 @@ namespace MetricsForceApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult Sobre()
         {
             return View();
