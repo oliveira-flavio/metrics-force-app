@@ -1,13 +1,12 @@
 ﻿@model MetricsForceApp.Models.Gerente
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<div class="content-wrapper">
-    <h1>Edit</h1>
+<div class="content-wrapper" style="padding-left: 10px">
+    <h1 style="font-size: 25px">@ViewData["Title"]</h1>
 
-    <h4>Gerente</h4>
     <hr />
     <div class="row">
         <div class="col-md-4">
@@ -35,14 +34,11 @@
                 </div>
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                    <a class="btn btn-info" asp-action="Index">Voltar</a>
                 </div>
             </form>
         </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
     </div>
 
     @section Scripts {
