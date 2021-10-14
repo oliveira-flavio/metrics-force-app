@@ -1,0 +1,54 @@
+﻿@model MetricsForceApp.Models.PercentualComissao
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PercentualComissao</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PorcentagemComissaoBase" class="control-label"></label>
+                <input asp-for="PorcentagemComissaoBase" class="form-control" />
+                <span asp-validation-for="PorcentagemComissaoBase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PorcentagemComissaoBronze" class="control-label"></label>
+                <input asp-for="PorcentagemComissaoBronze" class="form-control" />
+                <span asp-validation-for="PorcentagemComissaoBronze" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PorcentagemComissaoPrata" class="control-label"></label>
+                <input asp-for="PorcentagemComissaoPrata" class="form-control" />
+                <span asp-validation-for="PorcentagemComissaoPrata" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PorcentagemComissaoOuro" class="control-label"></label>
+                <input asp-for="PorcentagemComissaoOuro" class="form-control" />
+                <span asp-validation-for="PorcentagemComissaoOuro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PorcentagemComissaoDiamante" class="control-label"></label>
+                <input asp-for="PorcentagemComissaoDiamante" class="form-control" />
+                <span asp-validation-for="PorcentagemComissaoDiamante" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
