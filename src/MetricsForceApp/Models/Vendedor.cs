@@ -7,8 +7,8 @@ namespace MetricsForceApp.Models
 {
     public class Vendedor : Usuario
     {
-        public ICollection<Meta> Metas { get; private set; }
-        public ICollection<Comissao> Comissoes { get; private set; }
-        public ICollection<IndicadorDePerformance> IndicadoresDePerformance { get; private set; }
+        public ICollection<Meta> Metas { get; set; }
+        public ICollection<Comissao> Comissoes { get; set; }
+        public ICollection<IndicadorDePerformance> IndicadoresDePerformance { get; set; }
     }
 }

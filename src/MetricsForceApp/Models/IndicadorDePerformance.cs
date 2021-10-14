@@ -9,13 +9,11 @@ namespace MetricsForceApp.Models
     public class IndicadorDePerformance : Entity
     {
         [Display(Name = "Ticker Médio")]
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public decimal TicketMedio { get; private set; }
+        public decimal TicketMedio { get; set; }
         [Display(Name ="Quantidade Venda")]
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public int QuantidadeVenda { get; private set; }
-        public DateTime Data { get; private set; }
-        public Vendedor Vendedor { get; private set; }
-        public Gerente Gerente { get; private set; }
+        public int QuantidadeVenda { get; set; }
+        public DateTime Data { get; set; }
+        public Vendedor Vendedor { get; set; }
+        public Gerente Gerente { get; set; }
     }
 }

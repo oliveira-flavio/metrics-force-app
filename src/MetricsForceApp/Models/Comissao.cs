@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 namespace MetricsForceApp.Models
 {
     public class Comissao : Entity
-    {
-
-        [Required(ErrorMessage ="O campo {0} é obrigatório")]
-        public decimal Valor { get; private set; }
+    {        
+        public decimal Valor { get; set; }
         [Display(Name ="Mês Referência")]
-        public DateTime MesReferencia { get; private set; }
-        public Vendedor Vendedor { get; private set; }
-        public Gerente Gerente { get; private set; }
+        public DateTime MesReferencia { get; set; }
+        public Vendedor Vendedor { get; set; }
+        public Gerente Gerente { get; set; }
     }
 }
