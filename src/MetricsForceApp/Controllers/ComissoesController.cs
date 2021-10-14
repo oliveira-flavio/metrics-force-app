@@ -22,7 +22,7 @@ namespace MetricsForceApp.Controllers
         // GET: Comissoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Comissao.ToListAsync());
+            return View(await _context.Comissoes.ToListAsync());
         }
 
         // GET: Comissoes/Details/5
@@ -33,7 +33,7 @@ namespace MetricsForceApp.Controllers
                 return NotFound();
             }
 
-            var comissao = await _context.Comissao
+            var comissao = await _context.Comissoes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comissao == null)
             {
@@ -73,7 +73,7 @@ namespace MetricsForceApp.Controllers
                 return NotFound();
             }
 
-            var comissao = await _context.Comissao.FindAsync(id);
+            var comissao = await _context.Comissoes.FindAsync(id);
             if (comissao == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace MetricsForceApp.Controllers
                 return NotFound();
             }
 
-            var comissao = await _context.Comissao
+            var comissao = await _context.Comissoes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (comissao == null)
             {
@@ -139,15 +139,15 @@ namespace MetricsForceApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var comissao = await _context.Comissao.FindAsync(id);
-            _context.Comissao.Remove(comissao);
+            var comissao = await _context.Comissoes.FindAsync(id);
+            _context.Comissoes.Remove(comissao);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ComissaoExists(int id)
         {
-            return _context.Comissao.Any(e => e.Id == id);
+            return _context.Comissoes.Any(e => e.Id == id);
         }
     }
 }

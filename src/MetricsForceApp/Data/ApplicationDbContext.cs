@@ -21,5 +21,6 @@ namespace MetricsForceApp.Data
         public DbSet<PercentualComissao> PercentuaisComissao { get; set; }
         public DbSet<RegistroVenda> RegistroVendas { get; set; }
         public DbSet<IndicadorDePerformance> IndicadoresDePerformance { get; set; }
+        public DbSet<Comissao> Comissoes { get; set; }
     }
 }
