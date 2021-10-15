@@ -54,7 +54,7 @@ namespace MetricsForceApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("InicioMeta,FimMeta,MetaBronze,MetaPrata,MetaOuro,MetaDiamante,Id")] Meta meta)
+        public async Task<IActionResult> Create([Bind("InicioMeta,FimMeta,MetaMensal,Id")] Meta meta)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MetricsForceApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InicioMeta,FimMeta,MetaBronze,MetaPrata,MetaOuro,MetaDiamante,Id")] Meta meta)
+        public async Task<IActionResult> Edit(int id, [Bind("InicioMeta,FimMeta,MetaMensal,Id")] Meta meta)
         {
             if (id != meta.Id)
             {

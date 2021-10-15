@@ -21,17 +21,9 @@
                     @Html.DisplayNameFor(model => model.FimMeta)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.MetaBronze)
+                    @Html.DisplayNameFor(model => model.MetaMes)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MetaPrata)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MetaOuro)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MetaDiamante)
-                </th>
+
                 <th></th>
             </tr>
         </thead>
@@ -46,16 +38,7 @@
                         @Html.DisplayFor(modelItem => item.FimMeta)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.MetaBronze)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MetaPrata)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MetaOuro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MetaDiamante)
+                        @Html.DisplayFor(modelItem => item.MetaMes)
                     </td>
                     <td class="text-right">
                         <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>

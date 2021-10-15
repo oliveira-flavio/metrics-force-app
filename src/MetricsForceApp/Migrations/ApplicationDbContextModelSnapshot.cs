@@ -3,17 +3,15 @@ using System;
 using MetricsForceApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace MetricsForceApp.Data.Migrations
+namespace MetricsForceApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211014145908_correcao")]
-    partial class correcao
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +44,7 @@ namespace MetricsForceApp.Data.Migrations
 
                     b.HasIndex("VendedorId");
 
-                    b.ToTable("Comissao");
+                    b.ToTable("Comissoes");
                 });
 
             modelBuilder.Entity("MetricsForceApp.Models.IndicadorDePerformance", b =>
@@ -96,16 +94,7 @@ namespace MetricsForceApp.Data.Migrations
                     b.Property<DateTime>("InicioMeta")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<decimal>("MetaBronze")
-                        .HasColumnType("numeric");
-
-                    b.Property<decimal>("MetaDiamante")
-                        .HasColumnType("numeric");
-
-                    b.Property<decimal>("MetaOuro")
-                        .HasColumnType("numeric");
-
-                    b.Property<decimal>("MetaPrata")
+                    b.Property<decimal>("MetaMes")
                         .HasColumnType("numeric");
 
                     b.Property<int?>("VendedorId")

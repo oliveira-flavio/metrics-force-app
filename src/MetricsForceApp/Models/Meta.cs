@@ -12,14 +12,9 @@ namespace MetricsForceApp.Models
         public DateTime InicioMeta { get; set; }
         [Display(Name ="Fim Meta")]
         public DateTime FimMeta { get; set; }
-        [Display(Name ="Meta Bronze")]
-        public decimal MetaBronze { get; set; }
-        [Display(Name = "Meta Prata")]
-        public decimal MetaPrata { get; set; }
-        [Display(Name = "Meta Ouro")]
-        public decimal MetaOuro { get; set; }
-        [Display(Name = "Meta Diamante")]
-        public decimal MetaDiamante { get; set; }
+        [Display(Name ="Meta Mensal")]
+        public decimal MetaMes { get; set; }
+
         public Gerente Gerente { get; set; }
         public Vendedor Vendedor { get; set; }
     }

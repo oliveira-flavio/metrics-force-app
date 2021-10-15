@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace MetricsForceApp.Data.Migrations
+namespace MetricsForceApp.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class metaMes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -194,12 +194,11 @@ namespace MetricsForceApp.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comissao",
+                name: "Comissoes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IdUsuario = table.Column<int>(type: "integer", nullable: false),
                     Valor = table.Column<decimal>(type: "numeric", nullable: false),
                     MesReferencia = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     VendedorId = table.Column<int>(type: "integer", nullable: true),
@@ -207,15 +206,15 @@ namespace MetricsForceApp.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comissao", x => x.Id);
+                    table.PrimaryKey("PK_Comissoes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comissao_Usuarios_GerenteId",
+                        name: "FK_Comissoes_Usuarios_GerenteId",
                         column: x => x.GerenteId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Comissao_Usuarios_VendedorId",
+                        name: "FK_Comissoes_Usuarios_VendedorId",
                         column: x => x.VendedorId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
@@ -228,7 +227,6 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IdUsuario = table.Column<int>(type: "integer", nullable: false),
                     TicketMedio = table.Column<decimal>(type: "numeric", nullable: false),
                     QuantidadeVenda = table.Column<int>(type: "integer", nullable: false),
                     Data = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -258,13 +256,9 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IdUsuario = table.Column<int>(type: "integer", nullable: false),
                     InicioMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     FimMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    MetaBronze = table.Column<decimal>(type: "numeric", nullable: false),
-                    MetaPrata = table.Column<decimal>(type: "numeric", nullable: false),
-                    MetaOuro = table.Column<decimal>(type: "numeric", nullable: false),
-                    MetaDiamante = table.Column<decimal>(type: "numeric", nullable: false),
+                    MetaMes = table.Column<decimal>(type: "numeric", nullable: false),
                     GerenteId = table.Column<int>(type: "integer", nullable: true),
                     VendedorId = table.Column<int>(type: "integer", nullable: true)
                 },
@@ -291,7 +285,6 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IdComissao = table.Column<int>(type: "integer", nullable: false),
                     PorcentagemComissaoBase = table.Column<float>(type: "real", nullable: false),
                     PorcentagemComissaoBronze = table.Column<float>(type: "real", nullable: false),
                     PorcentagemComissaoPrata = table.Column<float>(type: "real", nullable: false),
@@ -303,9 +296,9 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     table.PrimaryKey("PK_PercentuaisComissao", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PercentuaisComissao_Comissao_ComissaoId",
+                        name: "FK_PercentuaisComissao_Comissoes_ComissaoId",
                         column: x => x.ComissaoId,
-                        principalTable: "Comissao",
+                        principalTable: "Comissoes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -348,13 +341,13 @@ namespace MetricsForceApp.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comissao_GerenteId",
-                table: "Comissao",
+                name: "IX_Comissoes_GerenteId",
+                table: "Comissoes",
                 column: "GerenteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comissao_VendedorId",
-                table: "Comissao",
+                name: "IX_Comissoes_VendedorId",
+                table: "Comissoes",
                 column: "VendedorId");
 
             migrationBuilder.CreateIndex(
@@ -433,7 +426,7 @@ namespace MetricsForceApp.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Comissao");
+                name: "Comissoes");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
