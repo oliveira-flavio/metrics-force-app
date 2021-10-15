@@ -33,7 +33,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item menu-open">
+                @*<li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
@@ -41,7 +41,7 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview">*@
 
 
                         <li class="nav-item">
@@ -62,7 +62,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="nav-icon fas fa-percent"></i>
                                 <p>Porcentagem</p>
                             </a>
                         </li>
@@ -72,25 +72,38 @@
                                 <p>KPIs</p>
                             </a>
                         </li>
-                    </ul>
+                    @*</ul>
+                </li>*@
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column">
+                <li class="nav-item ">
+                    <a asp-controller="RegistroVendas" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-cash-register"></i>
+                        <p>
+                            Vendas
+                        </p>
+                    </a>
                 </li>
             </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column">
+                <li class="nav-item ">
+                    <a asp-controller="Metas" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-compress-arrows-alt"></i>
+                        <p>
+                            Metas
+                        </p>
+                    </a>
+                </li>
+            </ul>
+
             <ul class="nav nav-pills nav-sidebar flex-column">
                 <li class="nav-item ">
                     <a asp-controller="Home" asp-action="Sobre" class="nav-link">
                         <i class="nav-icon fas fa-lock"></i>
                         <p>
                             Sobre
-                        </p>
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav nav-pills nav-sidebar flex-column">
-                <li class="nav-item ">
-                    <a asp-controller="RegistroVendas" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-lock"></i>
-                        <p>
-                            Vendas
                         </p>
                     </a>
                 </li>
