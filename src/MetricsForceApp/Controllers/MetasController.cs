@@ -22,6 +22,8 @@ namespace MetricsForceApp.Controllers
         // GET: Metas
         public async Task<IActionResult> Index()
         {
+            var applicationDbContext = _context.Metas.Include(v => v.Vendedor);
+            return View(await applicationDbContext.ToListAsync());
             return View(await _context.Metas.ToListAsync());
         }
 
@@ -34,6 +36,7 @@ namespace MetricsForceApp.Controllers
             }
 
             var meta = await _context.Metas
+                .Include(v => v.Vendedor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (meta == null)
             {
@@ -46,12 +49,11 @@ namespace MetricsForceApp.Controllers
         // GET: Metas/Create
         public IActionResult Create()
         {
+            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome");
             return View();
         }
 
         // POST: Metas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("InicioMeta,FimMeta,MetaMensal,Id")] Meta meta)
@@ -62,6 +64,7 @@ namespace MetricsForceApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome", meta.Vendedor);
             return View(meta);
         }
 
@@ -78,12 +81,11 @@ namespace MetricsForceApp.Controllers
             {
                 return NotFound();
             }
+            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome");
             return View(meta);
         }
 
         // POST: Metas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("InicioMeta,FimMeta,MetaMensal,Id")] Meta meta)
@@ -113,6 +115,7 @@ namespace MetricsForceApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome");
             return View(meta);
         }
 
