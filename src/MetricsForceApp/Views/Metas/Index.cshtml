@@ -1,65 +1,69 @@
 ﻿@model IEnumerable<MetricsForceApp.Models.Meta>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Metas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="content-wrapper" style="padding-left:10px">
+    <h1 style="font-size: 25px">@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.InicioMeta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FimMeta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaBronze)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaPrata)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaOuro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaDiamante)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.InicioMeta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FimMeta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaBronze)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaPrata)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaOuro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaDiamante)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a class="btn btn-info" asp-action="Create">Adicionar</a>
+    </p>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.InicioMeta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FimMeta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaBronze)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaPrata)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaOuro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaDiamante)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InicioMeta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FimMeta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaBronze)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaPrata)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaOuro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaDiamante)
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

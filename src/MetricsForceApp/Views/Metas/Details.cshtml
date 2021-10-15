@@ -1,54 +1,56 @@
 ﻿@model MetricsForceApp.Models.Meta
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h1>Details</h1>
+<div class="content-wrapper" style="padding-left: 10px">
+    <h1 style="font-size: 25px">@ViewData["Title"]</h1>
 
-<div>
-    <h4>Meta</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InicioMeta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InicioMeta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FimMeta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FimMeta)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetaBronze)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetaBronze)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetaPrata)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetaPrata)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetaOuro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetaOuro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetaDiamante)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetaDiamante)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
-    <a class="btn btn-info" asp-action="Index">Voltar</a>
+    <div>
+        <h4>Meta</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.InicioMeta)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.InicioMeta)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FimMeta)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FimMeta)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MetaBronze)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MetaBronze)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MetaPrata)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MetaPrata)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MetaOuro)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MetaOuro)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MetaDiamante)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MetaDiamante)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+        <a class="btn btn-info" asp-action="Index">Voltar</a>
+    </div>
 </div>
