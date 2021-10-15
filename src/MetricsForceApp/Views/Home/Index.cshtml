@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    @using MetricsForceApp.Models
+    @model Vendedor
 }
 
 <!-- Content Wrapper. Contains page content -->
@@ -53,16 +55,20 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>150<sup style="font-size: 20px">%</sup></h3>
+                    @*@foreach (var item in Model.Nome)
+                    {
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>150<sup style="font-size: 20px">%</sup></h3>
 
-                            <p>Vendedor 1</p>
+                                <p>@Html.DisplayFor(model => model.Nome) </p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-stats-bars"></i>
+                            </div>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                    </div>
+                    }*@
+
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>150</h3>
