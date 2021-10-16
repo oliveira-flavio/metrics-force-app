@@ -88,7 +88,7 @@ namespace MetricsForceApp.Data.Migrations
                     b.Property<DateTime>("FimMeta")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("GerenteId")
+                    b.Property<int>("GerenteId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("InicioMeta")
@@ -97,7 +97,7 @@ namespace MetricsForceApp.Data.Migrations
                     b.Property<decimal>("MetaMes")
                         .HasColumnType("numeric");
 
-                    b.Property<int?>("VendedorId")
+                    b.Property<int>("VendedorId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -459,11 +459,15 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     b.HasOne("MetricsForceApp.Models.Gerente", "Gerente")
                         .WithMany("Metas")
-                        .HasForeignKey("GerenteId");
+                        .HasForeignKey("GerenteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MetricsForceApp.Models.Vendedor", "Vendedor")
                         .WithMany("Metas")
-                        .HasForeignKey("VendedorId");
+                        .HasForeignKey("VendedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Gerente");
 

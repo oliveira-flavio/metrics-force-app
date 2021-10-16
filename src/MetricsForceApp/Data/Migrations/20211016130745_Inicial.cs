@@ -249,11 +249,11 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GerenteId = table.Column<int>(type: "integer", nullable: false),
+                    VendedorId = table.Column<int>(type: "integer", nullable: false),
                     InicioMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     FimMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    MetaMes = table.Column<decimal>(type: "numeric", nullable: false),
-                    GerenteId = table.Column<int>(type: "integer", nullable: true),
-                    VendedorId = table.Column<int>(type: "integer", nullable: true)
+                    MetaMes = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -263,13 +263,13 @@ namespace MetricsForceApp.Data.Migrations
                         column: x => x.GerenteId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Metas_Usuarios_VendedorId",
                         column: x => x.VendedorId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
