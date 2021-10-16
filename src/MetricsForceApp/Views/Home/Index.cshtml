@@ -1,62 +1,55 @@
 ﻿@{
     ViewData["Title"] = "Página Inicial";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @using MetricsForceApp.Models
-    @model Vendedor
 }
 
-<!-- Content Wrapper. Contains page content -->
-@*<div class="content-wrapper">*@
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
-                </div>
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="info-box bg-info">
-                        <div class="info-box-content text-center">
-                            <h3 class="info-box-number">41,410</h3>
-                            <span class="info-box-text">Realizado</span>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="info-box bg-info">
+                    <div class="info-box-content text-center">
+                        <h3 class="info-box-number">41,410</h3>
+                        <span class="info-box-text">Realizado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="info-box bg-info">
+                    <div class="info-box-content text-center">
+                        <h3 class="info-box-number">59,176</h3>
+                        <span class="info-box-text">Meta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="info-box bg-info">
+                    <div class="info-box-content text-center">
+                        <h3 class="info-box-number">70%</h3>
+                        <span class="info-box-text">Porcentagem Atingida</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="areaChart" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="info-box bg-info">
-                        <div class="info-box-content text-center">
-                            <h3 class="info-box-number">59,176</h3>
-                            <span class="info-box-text">Meta</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="info-box bg-info">
-                        <div class="info-box-content text-center">
-                            <h3 class="info-box-number">70%</h3>
-                            <span class="info-box-text">Porcentagem Atingida</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="card card-primary">
-                        <div class="card-body">
-                            <div class="chart">
-                                <canvas id="areaChart" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    @*@foreach (var item in Model.Nome)
+            </div>
+            <div class="col-sm-4">
+                @*@foreach (var item in Model.Nome)
                     {
                         <div class="small-box bg-info">
                             <div class="inner">
@@ -70,31 +63,27 @@
                         </div>
                     }*@
 
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>150</h3>
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>150</h3>
 
-                            <p>Vendedor 2</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
+                        <p>Vendedor 2</p>
                     </div>
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>150</h3>
-                            <p>Vendedor 3</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>150</h3>
+                        <p>Vendedor 3</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
-@*</div>*@
-<!-- /.content-wrapper -->
+</div>
 

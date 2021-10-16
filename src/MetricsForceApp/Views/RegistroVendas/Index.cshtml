@@ -5,47 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<div class="content-wrapper" style="padding-left:10px">*@
-    <h1 style="font-size: 25px">@ViewData["Title"]</h1>
+<h1 style="font-size: 25px">@ViewData["Title"]</h1>
 
-    <p>
-        <a class="btn btn-info" asp-action="Create">Nova venda</a>
-    </p>
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.QuantidadeItens)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ValorVenda)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Data)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.QuantidadeItens)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ValorVenda)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Data)
-                    </td>
-                    <td class="text-right">
-                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
-                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-@*</div>*@
+<p>
+    <a class="btn btn-info" asp-action="Create">Nova venda</a>
+</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoVendedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantidadeItens)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorVenda)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoVendedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantidadeItens)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorVenda)
+            </td>
+            <td class="text-right">
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

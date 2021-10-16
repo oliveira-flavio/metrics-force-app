@@ -5,52 +5,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<div class="content-wrapper" style="padding-left:10px">*@
-    <h1 style="font-size: 25px">@ViewData["Title"]</h1>
-    <p>
-        <a class="btn btn-info" asp-action="Create">Adicionar</a>
-    </p>
-    <table class="table table-hover">
-        <thead class="thead-dark" >
+<h1 style="font-size: 25px">@ViewData["Title"]</h1>
+<p>
+    <a class="btn btn-info" asp-action="Create">Adicionar</a>
+</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoFuncionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CodigoFuncionario)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ativo)
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoFuncionario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ativo)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodigoFuncionario)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ativo)
-                    </td>
-                    <td class="text-right">
-                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search" ></span></a>
-                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-@*</div>*@
+        }
+    </tbody>
+</table>
