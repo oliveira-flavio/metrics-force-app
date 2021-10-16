@@ -23,12 +23,11 @@ namespace MetricsForceApp.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Metas.Include(v => v.Vendedor);
-            return View(await applicationDbContext.ToListAsync());
-            return View(await _context.Metas.ToListAsync());
+            return View(await applicationDbContext.ToListAsync());          
         }
 
         // GET: Metas/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult>Details(int? id)
         {
             if (id == null)
             {
@@ -49,22 +48,23 @@ namespace MetricsForceApp.Controllers
         // GET: Metas/Create
         public IActionResult Create()
         {
-            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome");
+
+            ViewData["Vendedores"] = new SelectList(_context.Vendedores, "Id", "Nome");
             return View();
         }
 
         // POST: Metas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("InicioMeta,FimMeta,MetaMensal,Id")] Meta meta)
+        public async Task<IActionResult> Create(Meta @meta)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(meta);
+                _context.Metas.Add(@meta);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome", meta.Vendedor);
+            ViewData["Vendedores"] = new SelectList(_context.Vendedores, "Id", "Nome");
             return View(meta);
         }
 
