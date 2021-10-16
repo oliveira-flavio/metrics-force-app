@@ -1,4 +1,5 @@
-﻿using MetricsForceApp.Models;
+﻿using MetricsForceApp.Extensions;
+using MetricsForceApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,5 +23,10 @@ namespace MetricsForceApp.Data
         public DbSet<RegistroVenda> RegistroVendas { get; set; }
         public DbSet<IndicadorDePerformance> IndicadoresDePerformance { get; set; }
         public DbSet<Comissao> Comissoes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }
