@@ -24,9 +24,9 @@ namespace MetricsForceApp.Data
         public DbSet<IndicadorDePerformance> IndicadoresDePerformance { get; set; }
         public DbSet<Comissao> Comissoes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Seed();
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Seed();
+        //}
     }
 }
