@@ -9,6 +9,8 @@ namespace MetricsForceApp.Models
     public class RegistroVenda : Entity
     {
         [Display(Name = "Código Vendedor")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [StringLength(6, ErrorMessage = "O campo {0} precisa ter {1} caracteres", MinimumLength = 6)]
         public int CodigoVendedor { get; set; }
         [Display(Name = "Data da Venda")]
         public DateTime Data { get; set; }
