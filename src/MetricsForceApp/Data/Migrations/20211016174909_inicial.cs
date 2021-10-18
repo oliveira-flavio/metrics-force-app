@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MetricsForceApp.Data.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,7 +53,7 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CodigoVendedor = table.Column<int>(type: "integer", nullable: false),
+                    CodigoVendedor = table.Column<int>(type: "integer", maxLength: 6, nullable: false),
                     Data = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     QuantidadeItens = table.Column<int>(type: "integer", nullable: false),
                     ValorVenda = table.Column<decimal>(type: "numeric", nullable: false)
@@ -249,7 +249,6 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    GerenteId = table.Column<int>(type: "integer", nullable: false),
                     VendedorId = table.Column<int>(type: "integer", nullable: false),
                     InicioMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     FimMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -259,14 +258,30 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     table.PrimaryKey("PK_Metas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Metas_Usuarios_GerenteId",
-                        column: x => x.GerenteId,
+                        name: "FK_Metas_Usuarios_VendedorId",
+                        column: x => x.VendedorId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MetasGerentes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GerenteId = table.Column<int>(type: "integer", nullable: false),
+                    InicioMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    FimMeta = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    MetaMes = table.Column<decimal>(type: "numeric", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MetasGerentes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Metas_Usuarios_VendedorId",
-                        column: x => x.VendedorId,
+                        name: "FK_MetasGerentes_Usuarios_GerenteId",
+                        column: x => x.GerenteId,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -354,14 +369,14 @@ namespace MetricsForceApp.Data.Migrations
                 column: "VendedorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Metas_GerenteId",
-                table: "Metas",
-                column: "GerenteId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Metas_VendedorId",
                 table: "Metas",
                 column: "VendedorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MetasGerentes_GerenteId",
+                table: "MetasGerentes",
+                column: "GerenteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PercentuaisComissao_ComissaoId",
@@ -403,6 +418,9 @@ namespace MetricsForceApp.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Metas");
+
+            migrationBuilder.DropTable(
+                name: "MetasGerentes");
 
             migrationBuilder.DropTable(
                 name: "PercentuaisComissao");

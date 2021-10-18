@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MetricsForceApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211016130745_Inicial")]
-    partial class Inicial
+    [Migration("20211016174909_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,9 +90,6 @@ namespace MetricsForceApp.Data.Migrations
                     b.Property<DateTime>("FimMeta")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("GerenteId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("InicioMeta")
                         .HasColumnType("timestamp without time zone");
 
@@ -104,11 +101,35 @@ namespace MetricsForceApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GerenteId");
-
                     b.HasIndex("VendedorId");
 
                     b.ToTable("Metas");
+                });
+
+            modelBuilder.Entity("MetricsForceApp.Models.MetaGerente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("FimMeta")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("GerenteId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("InicioMeta")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<decimal>("MetaMes")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GerenteId");
+
+                    b.ToTable("MetasGerentes");
                 });
 
             modelBuilder.Entity("MetricsForceApp.Models.PercentualComissao", b =>
@@ -151,6 +172,7 @@ namespace MetricsForceApp.Data.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("CodigoVendedor")
+                        .HasMaxLength(6)
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Data")
@@ -459,21 +481,24 @@ namespace MetricsForceApp.Data.Migrations
 
             modelBuilder.Entity("MetricsForceApp.Models.Meta", b =>
                 {
-                    b.HasOne("MetricsForceApp.Models.Gerente", "Gerente")
-                        .WithMany("Metas")
-                        .HasForeignKey("GerenteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MetricsForceApp.Models.Vendedor", "Vendedor")
                         .WithMany("Metas")
                         .HasForeignKey("VendedorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Gerente");
-
                     b.Navigation("Vendedor");
+                });
+
+            modelBuilder.Entity("MetricsForceApp.Models.MetaGerente", b =>
+                {
+                    b.HasOne("MetricsForceApp.Models.Gerente", "Gerente")
+                        .WithMany()
+                        .HasForeignKey("GerenteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gerente");
                 });
 
             modelBuilder.Entity("MetricsForceApp.Models.PercentualComissao", b =>
@@ -541,8 +566,6 @@ namespace MetricsForceApp.Data.Migrations
                     b.Navigation("Comissoes");
 
                     b.Navigation("IndicadoresDePerformance");
-
-                    b.Navigation("Metas");
                 });
 
             modelBuilder.Entity("MetricsForceApp.Models.Vendedor", b =>
