@@ -50,8 +50,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Administradores/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Nome,Email,CodigoFuncionario,Ativo,Id")] Administrador administrador)
@@ -82,8 +81,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Administradores/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Nome,Email,CodigoFuncionario,Ativo,Id")] Administrador administrador)
