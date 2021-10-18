@@ -21,12 +21,14 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes
+        //[ClaimsAuthorize("Gerente", "Read")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Gerentes.ToListAsync());
         }
 
         // GET: Gerentes/Details/5
+        //[ClaimsAuthorize("Gerente", "Read")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -51,7 +53,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Create
-        //[ClaimsAuthorize("Gerente","Adicionar")]
+        //[ClaimsAuthorize("Gerente","Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Gerente gerente)
@@ -66,7 +68,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Edit/5
-        //[ClaimsAuthorize("Gerente", "Editar")]
+        //[ClaimsAuthorize("Gerente", "Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,7 +85,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Edit/5
-        //[ClaimsAuthorize("Gerente", "Editar")]
+        //[ClaimsAuthorize("Gerente", "Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Gerente gerente)
@@ -117,7 +119,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Delete/5
-        //[ClaimsAuthorize("Gerente", "Apagar")]
+        //[ClaimsAuthorize("Gerente", "Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +138,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Delete/5
-        //[ClaimsAuthorize("Gerente", "Apagar")]
+        //[ClaimsAuthorize("Gerente", "Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
