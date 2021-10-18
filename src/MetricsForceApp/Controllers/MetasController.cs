@@ -48,23 +48,22 @@ namespace MetricsForceApp.Controllers
         // GET: Metas/Create
         public IActionResult Create()
         {
-
-            ViewData["Vendedores"] = new SelectList(_context.Vendedores, "Id", "Nome");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nome");
             return View();
         }
 
         // POST: Metas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Meta @meta)
+        public async Task<IActionResult> Create(Meta meta)
         {
             if (ModelState.IsValid)
             {
-                _context.Metas.Add(@meta);
+                _context.Metas.Add(meta);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Vendedores"] = new SelectList(_context.Vendedores, "Id", "Nome");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nome", meta.VendedorId);
             return View(meta);
         }
 
@@ -81,14 +80,14 @@ namespace MetricsForceApp.Controllers
             {
                 return NotFound();
             }
-            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nome", meta.VendedorId);
             return View(meta);
         }
 
         // POST: Metas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InicioMeta,FimMeta,MetaMensal,Id")] Meta meta)
+        public async Task<IActionResult> Edit(int id, Meta meta)
         {
             if (id != meta.Id)
             {
@@ -115,7 +114,7 @@ namespace MetricsForceApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.VendedorId = new SelectList(_context.Vendedores, "Id", "Nome");
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nome", meta.VendedorId);
             return View(meta);
         }
 
