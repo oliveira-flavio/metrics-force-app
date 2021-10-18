@@ -50,11 +50,9 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: RegistroVendas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("QuantidadeItem,ValorVenda,QuantidadeItens,Data,Id")] RegistroVenda registroVenda)
+        public async Task<IActionResult> Create( RegistroVenda registroVenda)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +80,9 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: RegistroVendas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("QuantidadeItem,ValorVenda,QuantidadeItens,Data,Id")] RegistroVenda registroVenda)
+        public async Task<IActionResult> Edit(int id, RegistroVenda registroVenda)
         {
             if (id != registroVenda.Id)
             {

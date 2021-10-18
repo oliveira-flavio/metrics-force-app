@@ -48,16 +48,15 @@ namespace MetricsForceApp.Controllers
         // GET: MetasGerente/Create
         public IActionResult Create()
         {
-            ViewData["GerenteId"] = new SelectList(_context.Gerentes, "Id", "CodigoFuncionario");
+            ViewData["GerenteId"] = new SelectList(_context.Gerentes, "Id", "Nome");
             return View();
         }
 
         // POST: MetasGerente/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GerenteId,InicioMeta,FimMeta,MetaMes,Id")] MetaGerente metaGerente)
+        public async Task<IActionResult> Create( MetaGerente metaGerente)
         {
             if (ModelState.IsValid)
             {
@@ -82,13 +81,12 @@ namespace MetricsForceApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["GerenteId"] = new SelectList(_context.Gerentes, "Id", "CodigoFuncionario", metaGerente.GerenteId);
+            ViewData["GerenteId"] = new SelectList(_context.Gerentes, "Id", "Nome", metaGerente.GerenteId);
             return View(metaGerente);
         }
 
         // POST: MetasGerente/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("GerenteId,InicioMeta,FimMeta,MetaMes,Id")] MetaGerente metaGerente)

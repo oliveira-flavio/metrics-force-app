@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using MetricsForceApp.Data;
 using MetricsForceApp.Models;
 using MetricsForceApp.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MetricsForceApp.Controllers
 {
+    [Authorize]
     public class GerentesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,14 +23,14 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes
-        //[ClaimsAuthorize("Gerente", "Read")]
+        [ClaimsAuthorize("Gerente", "Read")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Gerentes.ToListAsync());
         }
 
         // GET: Gerentes/Details/5
-        //[ClaimsAuthorize("Gerente", "Read")]
+        [ClaimsAuthorize("Gerente", "Read")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,13 +49,14 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Create
+        [ClaimsAuthorize("Gerente", "Create")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Gerentes/Create
-        //[ClaimsAuthorize("Gerente","Create")]
+        [ClaimsAuthorize("Gerente", "Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Gerente gerente)
@@ -68,7 +71,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Edit/5
-        //[ClaimsAuthorize("Gerente", "Edit")]
+        [ClaimsAuthorize("Gerente", "Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,7 +88,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Edit/5
-        //[ClaimsAuthorize("Gerente", "Edit")]
+        [ClaimsAuthorize("Gerente", "Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Gerente gerente)
@@ -119,7 +122,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Delete/5
-        //[ClaimsAuthorize("Gerente", "Delete")]
+        [ClaimsAuthorize("Gerente", "Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
