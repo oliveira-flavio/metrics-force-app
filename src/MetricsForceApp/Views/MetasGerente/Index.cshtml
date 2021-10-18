@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MetricsForceApp.Models.MetaGerente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Gerente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InicioMeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FimMeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaMes)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gerente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InicioMeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FimMeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaMes)
+            </td>
+
+            <td class="text-right">
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                @*<a class="btn btn-danger" supress-by-claim-name="Gerente" supress-by-claim-name="Excluir"asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
