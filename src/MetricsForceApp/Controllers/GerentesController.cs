@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MetricsForceApp.Data;
 using MetricsForceApp.Models;
+using MetricsForceApp.Extensions;
 
 namespace MetricsForceApp.Controllers
 {
@@ -50,11 +51,10 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[ClaimsAuthorize("Gerente","Adicionar")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome,Email,CodigoFuncionario,Ativo,Id")] Gerente gerente)
+        public async Task<IActionResult> Create(Gerente gerente)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +66,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Edit/5
+        //[ClaimsAuthorize("Gerente", "Editar")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,11 +83,10 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[ClaimsAuthorize("Gerente", "Editar")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Nome,Email,CodigoFuncionario,Ativo,Id")] Gerente gerente)
+        public async Task<IActionResult> Edit(int id, Gerente gerente)
         {
             if (id != gerente.Id)
             {
@@ -117,6 +117,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Gerentes/Delete/5
+        //[ClaimsAuthorize("Gerente", "Apagar")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +136,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Delete/5
+        //[ClaimsAuthorize("Gerente", "Apagar")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
