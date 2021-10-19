@@ -47,6 +47,13 @@ namespace MetricsForceApp.Controllers
 
             return View(gerente);
         }
+        //Verificar com o Bruno
+        public ActionResult VendasTotais(int? id)
+        {
+            ViewBag.ValorTotal = _context.RegistroVendas.Select(r => r.ValorVenda).Sum();
+
+            return View();
+        }
 
         // GET: Gerentes/Create
         [ClaimsAuthorize("Gerente", "Create")]
@@ -141,7 +148,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Gerentes/Delete/5
-        //[ClaimsAuthorize("Gerente", "Delete")]
+        [ClaimsAuthorize("Gerente", "Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
