@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MetricsForceApp.Data;
 using MetricsForceApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using MetricsForceApp.Extensions;
 
 namespace MetricsForceApp.Controllers
 {
+    [Authorize]
     public class VendedoresController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,12 +23,14 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Vendedores
+        [ClaimsAuthorize("Vendedor", "Read")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Vendedores.ToListAsync());
         }
 
         // GET: Vendedores/Details/5
+        [ClaimsAuthorize("Vendedor", "Read")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,17 +49,16 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Vendedores/Create
+        [ClaimsAuthorize("Vendedor", "Create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Vendedores/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [ClaimsAuthorize("Vendedor", "Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome,Email,CodigoFuncionario,Ativo,Id")] Vendedor vendedor)
+        public async Task<IActionResult> Create(Vendedor vendedor)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +70,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Vendedores/Edit/5
+        [ClaimsAuthorize("Vendedor", "Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +86,10 @@ namespace MetricsForceApp.Controllers
             return View(vendedor);
         }
 
-        // POST: Vendedores/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [ClaimsAuthorize("Vendedor", "Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Nome,Email,CodigoFuncionario,Ativo,Id")] Vendedor vendedor)
+        public async Task<IActionResult> Edit(int id, Vendedor vendedor)
         {
             if (id != vendedor.Id)
             {
@@ -117,6 +120,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Vendedores/Delete/5
+        [ClaimsAuthorize("Vendedor", "Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +139,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Vendedores/Delete/5
+        [ClaimsAuthorize("Vendedor", "Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

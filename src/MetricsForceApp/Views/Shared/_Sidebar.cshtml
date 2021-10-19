@@ -30,7 +30,7 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" suppress-by-claim-name="Gerente" suppress-by-claim-value="Read">
                         <a asp-controller="Gerentes" asp-action="Index" class="nav-link">
                             <i class="nav-icon fas fa-user-shield"></i>
                             <p>
@@ -38,7 +38,7 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" suppress-by-claim-name="Vendedor" suppress-by-claim-value="Read">
                         <a asp-controller="Vendedores" asp-action="Index" class="nav-link">
                             <i class="nav-icon fas fa-user-shield"></i>
                             <p>
@@ -49,7 +49,7 @@
                 </ul>
 
                 <ul class="nav nav-pills nav-sidebar flex-column">
-                    <li class="nav-item ">
+                    <li class="nav-item " suppress-by-claim-name="Vendedor" suppress-by-claim-value="Read">
                         <a asp-controller="RegistroVendas" asp-action="Index" class="nav-link">
                             <i class="nav-icon fas fa-cash-register"></i>
                             <p>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
                 <ul class="nav nav-pills nav-sidebar flex-column">
-                    <li class="nav-item ">
+                    <li class="nav-item " suppress-by-claim-name="Gerente" suppress-by-claim-value="Read">
                         <a asp-controller="MetasGerente" asp-action="Index" class="nav-link">
                             <i class="nav-icon fas fa-compress-arrows-alt"></i>
                             <p>
@@ -70,7 +70,7 @@
                 </ul>
 
                 <ul class="nav nav-pills nav-sidebar flex-column">
-                    <li class="nav-item ">
+                    <li class="nav-item " suppress-by-claim-name="Vendedor" suppress-by-claim-value="Read">
                         <a asp-controller="Metas" asp-action="Index" class="nav-link">
                             <i class="nav-icon fas fa-compress-arrows-alt"></i>
                             <p>

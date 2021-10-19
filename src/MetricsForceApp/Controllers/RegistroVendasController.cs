@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MetricsForceApp.Data;
 using MetricsForceApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using MetricsForceApp.Extensions;
 
 namespace MetricsForceApp.Controllers
 {
+    [Authorize]
     public class RegistroVendasController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,12 +23,14 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: RegistroVendas
+        [ClaimsAuthorize("Vendas", "Read")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.RegistroVendas.ToListAsync());
         }
 
         // GET: RegistroVendas/Details/5
+        [ClaimsAuthorize("Vendas", "Read")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,12 +49,14 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: RegistroVendas/Create
+        [ClaimsAuthorize("Vendas", "Create")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: RegistroVendas/Create
+        [ClaimsAuthorize("Vendas", "Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( RegistroVenda registroVenda)
@@ -64,6 +71,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: RegistroVendas/Edit/5
+        [ClaimsAuthorize("Vendas", "Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,6 +88,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: RegistroVendas/Edit/5
+        [ClaimsAuthorize("Vendas", "Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, RegistroVenda registroVenda)
@@ -113,6 +122,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: RegistroVendas/Delete/5
+        [ClaimsAuthorize("Vendas", "Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,6 +141,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: RegistroVendas/Delete/5
+        [ClaimsAuthorize("Vendas", "Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -6,7 +6,8 @@
 
 <h1 style="font-size: 25px">@ViewData["Title"]</h1>
 <p>
-    <a class="btn btn-info" asp-action="Create">Adicionar</a>
+    <a class="btn btn-info" suppress-by-claim-name="Vendedor"
+       suppress-by-claim-value="Create" asp-action="Create">Adicionar</a>
 </p>
 <table class="table table-hover">
     <thead class="thead-dark">
@@ -43,10 +44,9 @@
                     @Html.DisplayFor(modelItem => item.Ativo)
                 </td>
                 <td class="text-right">
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
-                    @*<a class="btn btn-danger" supress-by-claim-name="Gerente" supress-by-claim-name="Excluir"asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>*@
+                    <a class="btn btn-info" suppress-by-claim-name="Vendedor" suppress-by-claim-value="Read" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                    <a class="btn btn-warning" suppress-by-claim-name="Vendedor" suppress-by-claim-value="Edit" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
+                    <a class="btn btn-danger" suppress-by-claim-name="Vendedor" suppress-by-claim-value="Delete" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
                 </td>
             </tr>
         }

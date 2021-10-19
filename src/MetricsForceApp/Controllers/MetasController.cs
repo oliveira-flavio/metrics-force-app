@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MetricsForceApp.Data;
 using MetricsForceApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using MetricsForceApp.Extensions;
 
 namespace MetricsForceApp.Controllers
 {
+    [Authorize]
     public class MetasController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +23,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Metas
+        [ClaimsAuthorize("MetaVendedor", "Read")]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Metas.Include(v => v.Vendedor);
@@ -27,6 +31,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Metas/Details/5
+        [ClaimsAuthorize("MetaVendedor", "Read")]
         public async Task<IActionResult>Details(int? id)
         {
             if (id == null)
@@ -46,6 +51,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Metas/Create
+        [ClaimsAuthorize("MetaVendedor", "Create")]
         public IActionResult Create()
         {
             ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Nome");
@@ -53,6 +59,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Metas/Create
+        [ClaimsAuthorize("MetaVendedor", "Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Meta meta)
@@ -68,6 +75,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Metas/Edit/5
+        [ClaimsAuthorize("MetaVendedor", "Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +93,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Metas/Edit/5
+        [ClaimsAuthorize("MetaVendedor", "Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Meta meta)
@@ -119,6 +128,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: Metas/Delete/5
+        [ClaimsAuthorize("MetaVendedor", "Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +147,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: Metas/Delete/5
+        [ClaimsAuthorize("MetaVendedor", "Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

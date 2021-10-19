@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MetricsForceApp.Data;
 using MetricsForceApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using MetricsForceApp.Extensions;
 
 namespace MetricsForceApp.Controllers
 {
+    [Authorize]
     public class MetasGerenteController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +23,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: MetasGerente
+        [ClaimsAuthorize("MetaGerente", "Read")]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.MetasGerentes.Include(m => m.Gerente);
@@ -27,6 +31,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: MetasGerente/Details/5
+        [ClaimsAuthorize("MetaGerente", "Read")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +51,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: MetasGerente/Create
+        [ClaimsAuthorize("MetaGerente", "Create")]
         public IActionResult Create()
         {
             ViewData["GerenteId"] = new SelectList(_context.Gerentes, "Id", "Nome");
@@ -53,7 +59,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: MetasGerente/Create
-
+        [ClaimsAuthorize("MetaGerente", "Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( MetaGerente metaGerente)
@@ -69,6 +75,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: MetasGerente/Edit/5
+        [ClaimsAuthorize("MetaGerente", "Edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,10 +93,10 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: MetasGerente/Edit/5
-
+        [ClaimsAuthorize("MetaGerente", "Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GerenteId,InicioMeta,FimMeta,MetaMes,Id")] MetaGerente metaGerente)
+        public async Task<IActionResult> Edit(int id, MetaGerente metaGerente)
         {
             if (id != metaGerente.Id)
             {
@@ -121,6 +128,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // GET: MetasGerente/Delete/5
+        [ClaimsAuthorize("MetaGerente", "Delete")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -140,6 +148,7 @@ namespace MetricsForceApp.Controllers
         }
 
         // POST: MetasGerente/Delete/5
+        [ClaimsAuthorize("MetaGerente", "Delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
