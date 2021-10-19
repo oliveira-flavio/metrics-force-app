@@ -53,7 +53,7 @@ namespace MetricsForceApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CodigoVendedor = table.Column<int>(type: "integer", maxLength: 6, nullable: false),
+                    CodigoVendedor = table.Column<string>(type: "character varying(6)", maxLength: 6, nullable: false),
                     Data = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     QuantidadeItens = table.Column<int>(type: "integer", nullable: false),
                     ValorVenda = table.Column<decimal>(type: "numeric", nullable: false)
@@ -309,6 +309,37 @@ namespace MetricsForceApp.Data.Migrations
                         principalTable: "Comissoes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "RegistroVendas",
+                columns: new[] { "Id", "CodigoVendedor", "Data", "QuantidadeItens", "ValorVenda" },
+                values: new object[,]
+                {
+                    { 4, "111111", new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 500.99m },
+                    { 25, "222222", new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 440.99m },
+                    { 24, "111111", new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 5550.99m },
+                    { 23, "111111", new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 900.99m },
+                    { 22, "222222", new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 6600.99m },
+                    { 21, "111111", new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 400.99m },
+                    { 20, "111111", new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 4500.99m },
+                    { 19, "111111", new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 3300.99m },
+                    { 18, "111111", new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 1500.99m },
+                    { 17, "222222", new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 990.99m },
+                    { 16, "222222", new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 5990.99m },
+                    { 15, "111111", new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 890.99m },
+                    { 14, "111111", new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 660.99m },
+                    { 13, "222222", new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, 7700.99m },
+                    { 12, "111111", new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 5500.99m },
+                    { 11, "111111", new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 5880.99m },
+                    { 10, "111111", new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 5700.99m },
+                    { 9, "222222", new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 5600.99m },
+                    { 8, "111111", new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 5500.99m },
+                    { 7, "111111", new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 1500.99m },
+                    { 6, "111111", new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 1000.99m },
+                    { 5, "222222", new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 600.99m },
+                    { 26, "111111", new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 7800.99m },
+                    { 27, "222222", new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 9900.99m }
                 });
 
             migrationBuilder.CreateIndex(

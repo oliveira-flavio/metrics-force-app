@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MetricsForceApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211018214656_Inicial")]
+    [Migration("20211019121055_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -171,9 +171,10 @@ namespace MetricsForceApp.Data.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("CodigoVendedor")
+                    b.Property<string>("CodigoVendedor")
+                        .IsRequired()
                         .HasMaxLength(6)
-                        .HasColumnType("integer");
+                        .HasColumnType("character varying(6)");
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("timestamp without time zone");
@@ -187,6 +188,200 @@ namespace MetricsForceApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RegistroVendas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 4,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 2,
+                            ValorVenda = 500.99m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 2,
+                            ValorVenda = 600.99m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 6,
+                            ValorVenda = 1000.99m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 7,
+                            ValorVenda = 1500.99m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 5,
+                            ValorVenda = 5500.99m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 8,
+                            ValorVenda = 5600.99m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 8,
+                            ValorVenda = 5700.99m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 8,
+                            ValorVenda = 5880.99m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 6,
+                            ValorVenda = 5500.99m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 9,
+                            ValorVenda = 7700.99m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 4,
+                            ValorVenda = 660.99m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 6,
+                            ValorVenda = 890.99m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 6,
+                            ValorVenda = 5990.99m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 5,
+                            ValorVenda = 990.99m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 8,
+                            ValorVenda = 1500.99m
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 6,
+                            ValorVenda = 3300.99m
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 3,
+                            ValorVenda = 4500.99m
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 8,
+                            ValorVenda = 400.99m
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 5,
+                            ValorVenda = 6600.99m
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 8,
+                            ValorVenda = 900.99m
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 5,
+                            ValorVenda = 5550.99m
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 4,
+                            ValorVenda = 440.99m
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CodigoVendedor = "111111",
+                            Data = new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 7,
+                            ValorVenda = 7800.99m
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CodigoVendedor = "222222",
+                            Data = new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuantidadeItens = 6,
+                            ValorVenda = 9900.99m
+                        });
                 });
 
             modelBuilder.Entity("MetricsForceApp.Models.Usuario", b =>
