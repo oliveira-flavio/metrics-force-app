@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MetricsForceApp.Extensions
 {
-    [HtmlTargetElement("*", Attributes = "suppres-by-claim-name")]
-    [HtmlTargetElement("*", Attributes = "suppres-by-claim-value")]
+    [HtmlTargetElement("*", Attributes = "suppress-by-claim-name")]
+    [HtmlTargetElement("*", Attributes = "suppress-by-claim-value")]
     public class ApagaElementoByClaimTagHelper : TagHelper
     {
         private readonly IHttpContextAccessor _contextAccessor;
