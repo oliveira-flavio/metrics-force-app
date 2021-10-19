@@ -1,13 +1,12 @@
 ﻿@model MetricsForceApp.Models.RegistroVenda
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar vendas";
 }
 
 
 <h1 style="font-size: 25px">@ViewData["Title"]</h1>
 
-<h4>RegistroVenda</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -30,7 +29,7 @@
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" suppress-by-claim-name="Gerente" suppress-by-claim-value="Create" />
                 <a class="btn btn-info" asp-action="Index">Voltar</a>
             </div>
         </form>

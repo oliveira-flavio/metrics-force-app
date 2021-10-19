@@ -1,7 +1,7 @@
 ﻿@model MetricsForceApp.Models.RegistroVenda
 
 @{
-    ViewData["Title"] = "Apagar";
+    ViewData["Title"] = "Apagar venda";
 }
 
 <h1 style="font-size: 25px">@ViewData["Title"]</h1>
@@ -33,7 +33,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <input type="submit" value="Apagar" class="btn btn-danger" suppress-by-claim-name="Gerente" suppress-by-claim-value="Delete"/> |
         <a class="btn btn-info" asp-action="Index">Voltar</a>
     </form>
 </div>
