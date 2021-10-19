@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MetricsForceApp.Extensions
 {
@@ -18,7 +15,7 @@ namespace MetricsForceApp.Extensions
             _contextAccessor = contextAccessor;
         }
 
-        [HtmlAttributeName("suppres-by-claim-name")]
+        [HtmlAttributeName("suppress-by-claim-name")]
         public string IdentityClaimName { get; set; }
         [HtmlAttributeName("suppress-by-claim-value")]
         public string IdentityClaimValue { get; set; }
