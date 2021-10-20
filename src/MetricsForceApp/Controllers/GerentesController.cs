@@ -22,6 +22,7 @@ namespace MetricsForceApp.Controllers
             _context = context;
         }
 
+
         // GET: Gerentes
         [ClaimsAuthorize("Gerente", "Read")]
         public async Task<IActionResult> Index()
@@ -48,12 +49,12 @@ namespace MetricsForceApp.Controllers
             return View(gerente);
         }
         //Verificar com o Bruno
-        public ActionResult VendasTotais(int? id)
-        {
-            ViewBag.ValorTotal = _context.RegistroVendas.Select(r => r.ValorVenda).Sum();
+        //public ActionResult VendasTotais(int? id)
+        //{
+        //    ViewBag.ValorTotal = _context.RegistroVendas.Select(r => r.ValorVenda).Sum();
 
-            return View();
-        }
+        //    return View();
+        //}
 
         // GET: Gerentes/Create
         [ClaimsAuthorize("Gerente", "Create")]
