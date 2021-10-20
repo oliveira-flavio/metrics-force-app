@@ -1,0 +1,43 @@
+﻿@model MetricsForceApp.Models.MetaGerente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MetaGerente</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gerente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gerente.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InicioMeta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InicioMeta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FimMeta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FimMeta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaMes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MetaMes)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" value="Editar" asp-action="Edit" asp-route-id="@Model.Id"></a> |
+    <a class="btn btn-info" asp-action="Index">Voltar</a>
+</div>

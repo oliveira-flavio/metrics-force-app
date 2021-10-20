@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MetricsForceApp.Models.Meta>
+
+@{
+    ViewData["Title"] = "Lista de Metas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-size: 25px">@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-info" suppress-by-claim-name="MetaVendedor"
+       suppress-by-claim-value="Create" asp-action="Create">Adicionar</a>
+</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InicioMeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FimMeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaMes)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendedor.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InicioMeta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FimMeta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MetaMes)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-info" suppress-by-claim-name="MetaVendedor" suppress-by-claim-value="Read" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search"></span></a>
+                    <a class="btn btn-warning" suppress-by-claim-name="MetaVendedor" suppress-by-claim-value="Edit" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-edit"></span></a>
+                    <a class="btn btn-danger" suppress-by-claim-name="MetaVendedor" suppress-by-claim-value="Delete" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

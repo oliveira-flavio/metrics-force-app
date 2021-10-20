@@ -1,0 +1,77 @@
+﻿@using MetricsForceApp.Models
+
+@{
+    ViewData["Title"] = "Página Inicial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="info-box bg-info">
+                    <div class="info-box-content text-center">
+                        <h3 class="info-box-number">@ViewBag.ValorTotal</h3>
+                        <span class="info-box-text">Realizado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="info-box bg-info">
+                    <div class="info-box-content text-center">
+                        <h3 class="info-box-number">@ViewBag.MetaMes</h3>
+                        <span class="info-box-text">Meta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="info-box bg-info">
+                    <div class="info-box-content text-center">
+                        <h3 class="info-box-number">@ViewBag.Porcentagem %</h3>
+                        <span class="info-box-text">Porcentagem Atingida</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <div class="chart">
+                            <img src="~/adminlte/dist/img/Grafico-Previsto-Realizado.png" alt="Gráfico Barras" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>150</h3>
+
+                        <p>Vendedor 2</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>150</h3>
+                        <p>Vendedor 3</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,46 @@
+﻿@model MetricsForceApp.Models.Meta
+
+@{
+    ViewData["Title"] = "Nova Meta";
+}
+
+<h1 style="font-size: 25px">@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VendedorId" class="control-label"></label>
+                <select asp-for="VendedorId" class="form-control" asp-items="ViewBag.VendedorId"></select>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="InicioMeta" class="control-label"></label>
+                <input asp-for="InicioMeta" class="form-control" />
+                <span asp-validation-for="InicioMeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FimMeta" class="control-label"></label>
+                <input asp-for="FimMeta" class="form-control" />
+                <span asp-validation-for="FimMeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaMes" class="control-label"></label>
+                <input asp-for="MetaMes" class="form-control" />
+                <span asp-validation-for="MetaMes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+                <a class="btn btn-info" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
