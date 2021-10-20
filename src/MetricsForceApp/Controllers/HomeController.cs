@@ -63,7 +63,7 @@ namespace MetricsForceApp.Controllers
         {
             var consultaGerente = _context.MetasGerentes.Select(c => c.MetaMes).Sum();
             var consultaVendas = _context.RegistroVendas.Select(r => r.ValorVenda).Sum();
-            var resultado = (consultaGerente / consultaVendas).ToString("N2");
+            var resultado = ((consultaVendas / consultaGerente)*100).ToString("N2");
             ViewBag.Porcentagem = resultado;
 
             return View();
